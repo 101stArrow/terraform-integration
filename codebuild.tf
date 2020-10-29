@@ -1,5 +1,5 @@
 resource "aws_codebuild_project" "plan" {
-  name = var.build_name
+  name = var.plan_name
   description = var.build_description
 
   build_timeout = "5"
@@ -21,7 +21,7 @@ resource "aws_codebuild_project" "plan" {
   logs_config {
     cloudwatch_logs {
       group_name  = "franscape-instance-plan"
-      stream_name = var.build_name
+      stream_name = var.plan_name
     }
   }
 
