@@ -6,9 +6,12 @@ resource "aws_codebuild_project" "plan" {
   service_role  = aws_iam_role.build.arn
 
   artifacts {
-    type = "S3"
-    location = var.output_bucket
-    name = var.output_key
+    type = "CODEPIPELINE"
+  }
+
+  source {
+    type = "CODEPIPELINE"
+    buildspec = "buildspec.plan.yaml"
   }
 
   environment {
@@ -25,13 +28,6 @@ resource "aws_codebuild_project" "plan" {
     }
   }
 
-  source {
-    type = "CODEPIPELINE"
-    buildspec = "buildspec.plan.yaml"
-  }
-
-  source_version = "refs/heads/master"
-
   tags = {
     Name     = var.build_description
     Project  = "franscape"
@@ -46,9 +42,12 @@ resource "aws_codebuild_project" "apply" {
   service_role  = aws_iam_role.build.arn
 
   artifacts {
-    type = "S3"
-    location = var.output_bucket
-    name = var.output_key
+    type = "CODEPIPELINE"
+  }
+
+  source {
+    type = "CODEPIPELINE"
+    buildspec = "buildspec.apply.yaml"
   }
 
   environment {
@@ -64,13 +63,6 @@ resource "aws_codebuild_project" "apply" {
       stream_name = var.apply_name
     }
   }
-
-  source {
-    type = "CODEPIPELINE"
-    buildspec = "buildspec.apply.yaml"
-  }
-
-  source_version = "refs/heads/master"
 
   tags = {
     Name     = var.build_description

@@ -29,9 +29,9 @@ resource "aws_codepipeline" "pipeline" {
   }
 
   stage {
-    name = "Terraform_Plan"
+    name = var.plan_name
     action {
-      name             = "Terraform-Plan"
+      name             = var.plan_name
       category         = "Build"
       owner            = "AWS"
       provider         = "CodeBuild"
@@ -56,9 +56,9 @@ resource "aws_codepipeline" "pipeline" {
   }
 
   stage {
-    name = "Terraform_Apply"
+    name = var.apply_name
     action {
-      name            = "Terraform-Apply"
+      name            = var.apply_name
       category        = "Build"
       owner           = "AWS"
       provider        = "CodeBuild"
