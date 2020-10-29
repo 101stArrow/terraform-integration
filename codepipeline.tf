@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "artifcats" {
 }
 
 resource "aws_codepipeline" "pipeline" {
-  name     = "pipeline_${var.id}"
+  name     = var.pipeline_name
   role_arn = aws_iam_role.build.arn
 
   artifact_store {

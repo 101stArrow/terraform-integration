@@ -30,10 +30,15 @@ variable "output_key" {
 
 variable "plan_name" {
   type        = string
-  description = "The Key of the Output Bucket"
+  description = "The Name of the Plan Pipeline"
 }
 
 variable "apply_name" {
   type        = string
-  description = "The Key of the Output Bucket"
+  description = "The Name of the Apply Pipeline"
+}
+
+variable "pipeline_name" {
+  type        = string
+  description = "The Name of the Pipeline"
 }
