@@ -21,13 +21,13 @@ resource "aws_codebuild_project" "builder" {
   logs_config {
     cloudwatch_logs {
       group_name  = "franscape-instance-builder"
-      stream_name = var.brand_id
+      stream_name = var.build_name
     }
   }
 
   source {
     type            = "CODECOMMIT"
-    location        = aws_codecommit_repository.instance.clone_url_http
+    location        = aws_codecommit_repository.repository.clone_url_http
     git_clone_depth = 1
 
     git_submodules_config {
@@ -38,8 +38,7 @@ resource "aws_codebuild_project" "builder" {
   source_version = "refs/heads/master"
 
   tags = {
-    Name     = "${var.brand_name} Infrastructure Build Project"
+    Name     = var.build_description
     Project  = "franscape"
-    Instance = var.brand_id
   }
 }
