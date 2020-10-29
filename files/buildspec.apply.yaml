@@ -13,4 +13,5 @@ phases:
       - git config --global credential.UseHttpPath true
   build:
     commands:
+      - terraform init >/dev/null
       - terraform apply "tfplan"
