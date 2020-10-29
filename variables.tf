@@ -18,16 +18,6 @@ variable "output_bucket" {
   description = "The Name of the Output Bucket"
 }
 
-variable "artifacts_bucket" {
-  type        = string
-  description = "The Name of the Artifacts Bucket"
-}
-
-variable "output_key" {
-  type        = string
-  description = "The Key of the Output Bucket"
-}
-
 variable "plan_name" {
   type        = string
   description = "The Name of the Plan Pipeline"
