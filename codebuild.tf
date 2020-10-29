@@ -1,4 +1,4 @@
-resource "aws_codebuild_project" "builder" {
+resource "aws_codebuild_project" "plan" {
   name = var.build_name
   description = var.build_description
 
@@ -20,7 +20,7 @@ resource "aws_codebuild_project" "builder" {
 
   logs_config {
     cloudwatch_logs {
-      group_name  = "franscape-instance-builder"
+      group_name  = "franscape-instance-plan"
       stream_name = var.build_name
     }
   }
