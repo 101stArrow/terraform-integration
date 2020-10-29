@@ -1,7 +1,11 @@
-resource "local_file" "plan_spec" {
-  content = file("${path.module}/files/buildspec.plan.yaml")
+data "template_file" "plan_spec" {
+  template = file("${path.module}/files/buildspec.plan.yaml.tpl")
   filename = "buildspec.plan.yaml"
+  vars = {
+    id = var.repo_name,
+  }
 }
+
 
 resource "local_file" "apply_spec" {
   content = file("${path.module}/files/buildspec.apply.yaml")
