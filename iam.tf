@@ -8,7 +8,7 @@ resource "aws_iam_role" "build" {
     {
       "Effect": "Allow",
       "Principal": {
-        "Service": "codebuild.amazonaws.com"
+        "Service": ["codebuild.amazonaws.com", "codepipeline.amazonaws.com"]
       },
       "Action": "sts:AssumeRole"
     }
