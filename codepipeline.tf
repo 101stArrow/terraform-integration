@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "artifcats" {
-  bucket = "franscape-pipeline-${var.id}"
+resource "aws_s3_bucket" "artifacts" {
+  bucket = var.artifacts_bucket
 }
 
 resource "aws_codepipeline" "pipeline" {
@@ -7,7 +7,7 @@ resource "aws_codepipeline" "pipeline" {
   role_arn = aws_iam_role.build.arn
 
   artifact_store {
-    location = aws_s3_bucket.artifcats.bucket
+    location = aws_s3_bucket.artifacts.bucket
     type     = "S3"
   }
 
