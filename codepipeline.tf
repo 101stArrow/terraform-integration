@@ -63,7 +63,7 @@ resource "aws_codepipeline" "pipeline" {
       category        = "Build"
       owner           = "AWS"
       provider        = "CodeBuild"
-      input_artifacts = ["SourceArtifact","PlanArtifact"]
+      input_artifacts = ["PlanArtifact"]
       version         = "1"
 
       configuration = {
