@@ -8,11 +8,6 @@ variable "repo_description" {
   description = "The Description of the Repository"
 }
 
-variable "build_name" {
-  type        = string
-  description = "The Name of the Build Project"
-}
-
 variable "build_description" {
   type        = string
   description = "The Description of the Build Project"
