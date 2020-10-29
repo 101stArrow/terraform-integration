@@ -39,7 +39,7 @@ resource "aws_codepipeline" "pipeline" {
       version          = "1"
 
       configuration = {
-        ProjectName = "plan_${var.id}"
+        ProjectName = var.plan_name
       }
     }
   }
@@ -66,7 +66,7 @@ resource "aws_codepipeline" "pipeline" {
       version         = "1"
 
       configuration = {
-        ProjectName = var.codebuild_terraform_apply_name
+        ProjectName = var.apply_name
       }
     }
   }

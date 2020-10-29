@@ -27,3 +27,13 @@ variable "output_key" {
   type        = string
   description = "The Key of the Output Bucket"
 }
+
+variable "plan_name" {
+  type        = string
+  description = "The Key of the Output Bucket"
+}
+
+variable "apply_name" {
+  type        = string
+  description = "The Key of the Output Bucket"
+}
