@@ -29,7 +29,7 @@ artifacts:
     - tfplan
     - plan.json
     - plan.destroy.json
-    - build-plan
-    - entire-plan
+    - build-plan/
+    - entire-plan/
   name: plan
   discard-paths: no
