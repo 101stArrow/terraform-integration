@@ -26,13 +26,7 @@ resource "aws_codebuild_project" "plan" {
   }
 
   source {
-    type            = "CODECOMMIT"
-    location        = aws_codecommit_repository.repository.clone_url_http
-    git_clone_depth = 1
-
-    git_submodules_config {
-      fetch_submodules = true
-    }
+    type = "CODEPIPELINE"
   }
 
   source_version = "refs/heads/master"
