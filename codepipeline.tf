@@ -1,7 +1,3 @@
-resource "aws_s3_bucket" "artifacts" {
-  bucket = var.artifacts_bucket
-}
-
 data "aws_s3_bucket" "output_bucket" {
   bucket = var.output_bucket
 }
