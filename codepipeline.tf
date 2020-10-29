@@ -2,12 +2,16 @@ resource "aws_s3_bucket" "artifacts" {
   bucket = var.artifacts_bucket
 }
 
+data "aws_s3_bucket" "output_bucket" {
+  bucket = var.output_bucket
+}
+
 resource "aws_codepipeline" "pipeline" {
   name     = var.pipeline_name
   role_arn = aws_iam_role.build.arn
 
   artifact_store {
-    location = aws_s3_bucket.artifacts.bucket
+    location = data.aws_s3_bucket.output_bucket.bucket
     type     = "S3"
   }
 

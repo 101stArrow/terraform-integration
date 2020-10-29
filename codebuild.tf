@@ -1,3 +1,13 @@
+resource "local_file" "plan_spec" {
+  content = file("${path.module}/files/buildspec.plan.yaml")
+  filename = "buildspec.plan.yaml"
+}
+
+resource "local_file" "apply_spec" {
+  content = file("${path.module}/files/buildspec.apply.yaml")
+  filename = "buildspec.apply.yaml"
+}
+
 resource "aws_codebuild_project" "plan" {
   name = var.plan_name
   description = var.build_description
