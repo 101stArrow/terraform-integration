@@ -25,10 +25,10 @@ phases:
       - mv terraform-visual-report entire-plan
 artifacts:
   files:
+    - buildspec.apply.yaml
     - tfplan
     - plan.json
     - plan.destroy.json
-    - buildspec.apply.yaml
     - build-plan
     - entire-plan
   name: plan
