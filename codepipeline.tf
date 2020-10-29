@@ -22,7 +22,7 @@ resource "aws_codepipeline" "pipeline" {
       output_artifacts = ["SourceArtifact"]
 
       configuration = {
-        RepositoryName = aws_codecommit_repository.repository.name
+        RepositoryName = var.repo_name
         BranchName     = "master"
       }
     }
