@@ -20,9 +20,9 @@ phases:
       - terraform show -json tfplan > plan.json
       - terraform show -json tfplan.destroy > plan.destroy.json
       - terraform-visual --plan plan.json
-      - aws s3 mv terraform-visual-report/ s3://franscape-terraform-plan/${id}/new/
+      - aws s3 mv terraform-visual-report/ s3://${bucket}/${id}/new/
       - terraform-visual --plan plan.destroy.json
-      - aws s3 mv terraform-visual-report/ s3://franscape-terraform-plan/${id}/existing/
+      - aws s3 mv terraform-visual-report/ s3://${bucket}/${id}/existing/
 artifacts:
   files:
     - buildspec.apply.yaml
