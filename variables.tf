@@ -13,7 +13,7 @@ variable "build_description" {
   description = "The Description of the Build Project"
 }
 
-variable "output_bucket" {
+variable "bucket_name" {
   type        = string
   description = "The Name of the Output Bucket"
 }
