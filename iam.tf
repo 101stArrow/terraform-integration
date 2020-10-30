@@ -1,5 +1,5 @@
 resource "aws_iam_role" "build" {
-  name = "build_${var.repo_name}"
+  name = "build_${var.system_id}_repository"
 
   assume_role_policy = <<EOF
 {

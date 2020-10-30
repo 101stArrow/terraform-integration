@@ -17,7 +17,7 @@ resource "local_file" "apply_spec" {
 }
 
 resource "aws_codebuild_project" "plan" {
-  name = var.plan_name
+  name = "${var.system_id}_plan"
   description = var.build_description
 
   build_timeout = "5"
@@ -42,7 +42,7 @@ resource "aws_codebuild_project" "plan" {
   logs_config {
     cloudwatch_logs {
       group_name  = "franscape-instance"
-      stream_name = var.plan_name
+      stream_name = "${var.system_id}_plan"
     }
   }
 
@@ -53,7 +53,7 @@ resource "aws_codebuild_project" "plan" {
 }
 
 resource "aws_codebuild_project" "apply" {
-  name = var.apply_name
+  name = "${var.system_id}_apply"
   description = var.build_description
 
   build_timeout = "5"
@@ -78,7 +78,7 @@ resource "aws_codebuild_project" "apply" {
   logs_config {
     cloudwatch_logs {
       group_name  = "franscape-instance"
-      stream_name = var.apply_name
+      stream_name = "${var.system_id}_apply"
     }
   }
 

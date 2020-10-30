@@ -1,4 +1,4 @@
-variable "repo_name" {
+variable "system_id" {
   type        = string
   description = "The Name of the Repository"
 }
@@ -11,24 +11,4 @@ variable "repo_description" {
 variable "build_description" {
   type        = string
   description = "The Description of the Build Project"
-}
-
-variable "bucket_name" {
-  type        = string
-  description = "The Name of the Output Bucket"
-}
-
-variable "plan_name" {
-  type        = string
-  description = "The Name of the Plan Pipeline"
-}
-
-variable "apply_name" {
-  type        = string
-  description = "The Name of the Apply Pipeline"
-}
-
-variable "pipeline_name" {
-  type        = string
-  description = "The Name of the Pipeline"
 }

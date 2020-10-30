@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "output_bucket" {
-  bucket = var.bucket_name
+  bucket = "${var.system_id}_bucket"
 }
 
 resource "aws_codepipeline" "pipeline" {
-  name     = var.pipeline_name
+  name     = "${var.system_id}_pipeline"
   role_arn = aws_iam_role.build.arn
 
   artifact_store {
@@ -22,16 +22,16 @@ resource "aws_codepipeline" "pipeline" {
       output_artifacts = ["SourceArtifact"]
 
       configuration = {
-        RepositoryName = var.repo_name
+        RepositoryName = "${var.system_id}_repository"
         BranchName     = "master"
       }
     }
   }
 
   stage {
-    name = var.plan_name
+    name = "${var.system_id}_plan"
     action {
-      name             = var.plan_name
+      name             = "${var.system_id}_plan"
       category         = "Build"
       owner            = "AWS"
       provider         = "CodeBuild"
@@ -40,7 +40,7 @@ resource "aws_codepipeline" "pipeline" {
       version          = "1"
 
       configuration = {
-        ProjectName = var.plan_name
+        ProjectName = "${var.system_id}_plan"
       }
     }
   }
@@ -57,9 +57,9 @@ resource "aws_codepipeline" "pipeline" {
   }
 
   stage {
-    name = var.apply_name
+    name = "${var.system_id}_apply"
     action {
-      name            = var.apply_name
+      name            = "${var.system_id}_apply"
       category        = "Build"
       owner           = "AWS"
       provider        = "CodeBuild"
@@ -67,7 +67,7 @@ resource "aws_codepipeline" "pipeline" {
       version         = "1"
 
       configuration = {
-        ProjectName = var.apply_name
+        ProjectName = "${var.system_id}_apply"
       }
     }
   }
