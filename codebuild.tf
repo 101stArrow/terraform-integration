@@ -7,7 +7,7 @@ data "template_file" "plan_spec" {
 
 resource "local_file" "plan_spec" {
   content = data.template_file.plan_spec.rendered
-  filename = "buildspec.apply.yaml"
+  filename = "buildspec.plan.yaml"
 }
 
 resource "local_file" "apply_spec" {
