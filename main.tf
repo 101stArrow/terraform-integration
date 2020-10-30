@@ -6,8 +6,3 @@ terraform {
     }
   }
 }
-
-provider "aws" {
-  profile = "work"
-  region  = "eu-west-2"
-}
