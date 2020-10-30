@@ -2,7 +2,7 @@ data "template_file" "plan_spec" {
   template = file("${path.module}/files/buildspec.plan.yaml.tpl")
   vars = {
     id = var.repo_name,
-    bucket = data.aws_s3_bucket.output_bucket.bucket
+    bucket = aws_s3_bucket.output_bucket.bucket
   }
 }
 
