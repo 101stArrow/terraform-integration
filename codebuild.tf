@@ -1,7 +1,7 @@
 data "template_file" "plan_spec" {
   template = file("${path.module}/files/buildspec.plan.yaml.tpl")
   vars = {
-    id = replace("${var.system_id}_repository", "_", "-"),
+    id = "${var.system_id}_repository",
     bucket = aws_s3_bucket.output_bucket.bucket
   }
 }

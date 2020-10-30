@@ -1,4 +1,4 @@
 resource "aws_codecommit_repository" "repository" {
-  repository_name = replace("${var.system_id}_repository", "_", "-")
+  repository_name = "${var.system_id}_repository"
   description     = var.repo_description
 }

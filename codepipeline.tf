@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "output_bucket" {
-  bucket = "${var.system_id}_bucket"
+  bucket = replace("${var.system_id}_bucket", "_", "-")
 }
 
 resource "aws_codepipeline" "pipeline" {
@@ -22,7 +22,7 @@ resource "aws_codepipeline" "pipeline" {
       output_artifacts = ["SourceArtifact"]
 
       configuration = {
-        RepositoryName = replace("${var.system_id}_repository", "_", "-")
+        RepositoryName = "${var.system_id}_repository"
         BranchName     = "master"
       }
     }
