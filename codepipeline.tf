@@ -22,7 +22,7 @@ resource "aws_codepipeline" "pipeline" {
       output_artifacts = ["SourceArtifact"]
 
       configuration = {
-        RepositoryName = "${var.system_id}_repository"
+        RepositoryName = replace("${var.system_id}_repository", "_", "-")
         BranchName     = "master"
       }
     }
