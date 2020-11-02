@@ -25,6 +25,7 @@ phases:
       - aws s3 mv --recursive terraform-visual-report/ s3://${bucket}/existing/ >/dev/null
 artifacts:
   files:
+    - .terraform
     - buildspec.apply.yaml
     - tfplan
     - plan.json
