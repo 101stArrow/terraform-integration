@@ -44,18 +44,7 @@ resource "aws_codepipeline" "pipeline" {
       }
     }
   }
-
-  stage {
-    name = "Manual_Approval"
-    action {
-      name     = "Manual-Approval"
-      category = "Approval"
-      owner    = "AWS"
-      provider = "Manual"
-      version  = "1"
-    }
-  }
-
+  
   stage {
     name = "${var.system_id}_apply"
     action {
