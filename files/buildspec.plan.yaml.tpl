@@ -25,12 +25,6 @@ phases:
       - aws s3 mv --recursive terraform-visual-report/ s3://${bucket}/existing/ >/dev/null
 artifacts:
   files:
-    - .terraform
-    - buildspec.apply.yaml
-    - tfplan
-    - plan.json
-    - plan.destroy.json
-    - build-plan/
-    - entire-plan/
+    - '**/*'
   name: plan
   discard-paths: no
