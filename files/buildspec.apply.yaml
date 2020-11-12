@@ -14,7 +14,8 @@ phases:
   build:
     commands:
       - git clone $REPO repo
-      - mv repo/** .
+      - mv tfplan repo/
+      - cd repo
       - terraform init
       - terraform apply "tfplan"''
       - git commit -am "Built $CODEBUILD_BUILD_NUMBER"
