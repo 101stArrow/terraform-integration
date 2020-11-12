@@ -13,6 +13,7 @@ phases:
       - git config --global credential.UseHttpPath true
   build:
     commands:
-      - git clone $REPO .
+      - git clone $REPO repo
+      - mv repo/** .
       - terraform init
       - terraform apply "tfplan"
