@@ -73,6 +73,11 @@ resource "aws_codebuild_project" "apply" {
     image                       = "aws/codebuild/standard:4.0"
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
+
+    environment_variable {
+      name  = "REPO"
+      value = aws_codecommit_repository.repository.clone_url_http
+    }
   }
 
   logs_config {
