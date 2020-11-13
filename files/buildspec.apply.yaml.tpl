@@ -17,5 +17,6 @@ phases:
       - mv tfplan repo/
       - cd repo
       - terraform init
-      - aws ec2 authorize-security-group-ingress --protocol tcp --port 22 --cidr `curl -s ifconfig.co`/32 --group-id ${secgroup}
+      - aws ec2 authorize-security-group-ingress --protocol tcp --port 14866 --cidr `curl -s ifconfig.co`/32 --group-id ${secgroup}
       - terraform apply "tfplan"
+      - aws ec2 revoke-security-group-ingress --protocol tcp --port 14866 --cidr `curl -s ifconfig.co`/32 --group-id ${secgroup}
