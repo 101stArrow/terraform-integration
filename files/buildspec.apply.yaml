@@ -18,7 +18,3 @@ phases:
       - cd repo
       - terraform init
       - terraform apply "tfplan"''
-      - git config --global user.email "systembuilder@franscape.io"
-      - git config --global user.name "Franscape System Builder"
-      - git commit -am "Built $CODEBUILD_BUILD_NUMBER"
-      - git push origin master
