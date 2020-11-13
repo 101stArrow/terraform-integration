@@ -17,4 +17,4 @@ phases:
       - mv tfplan repo/
       - cd repo
       - terraform init
-      - terraform apply "tfplan"''
+      - terraform apply "tfplan"
