@@ -19,7 +19,7 @@ data "template_file" "apply_spec" {
 }
 
 resource "local_file" "apply_spec" {
-  content = file("${path.module}/files/buildspec.apply.yaml")
+  content = data.template_file.apply_spec.rendered
   filename = "buildspec.apply.yaml"
 }
 
