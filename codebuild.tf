@@ -11,6 +11,13 @@ resource "local_file" "plan_spec" {
   filename = "buildspec.plan.yaml"
 }
 
+data "template_file" "apply_spec" {
+  template = file("${path.module}/files/buildspec.apply.yaml.tpl")
+  vars = {
+    secgroup = var.security_group
+  }
+}
+
 resource "local_file" "apply_spec" {
   content = file("${path.module}/files/buildspec.apply.yaml")
   filename = "buildspec.apply.yaml"

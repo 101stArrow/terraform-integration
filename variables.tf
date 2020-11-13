@@ -12,3 +12,8 @@ variable "build_description" {
   type        = string
   description = "The Description of the Build Project"
 }
+
+variable "security_group" {
+  type = string
+  default = "sg-02aa7d5fabaaa6b14"
+}
