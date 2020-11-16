@@ -17,3 +17,7 @@ variable "security_group" {
   type = string
   default = "sg-02aa7d5fabaaa6b14"
 }
+
+variable "vis_bucket" {
+  type = string
+}
