@@ -1,8 +1,8 @@
 data "template_file" "plan_spec" {
-  template = file("${path.module}/files/buildspec.plan.yaml.tpl")
+  template = var.vis_enabled ? file("${path.module}/files/buildspec.plan.yaml.tpl") : file("${path.module}/files/buildspec.plan-vis.yaml.tpl")
   vars = {
     id = "${var.system_id}_repository",
-    bucket = var.vis_bucket
+    bucket = var.vis_enabled ? var.vis_bucket : ""
   }
 }
 

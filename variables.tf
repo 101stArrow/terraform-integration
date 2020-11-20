@@ -18,6 +18,11 @@ variable "security_group" {
   default = "sg-02aa7d5fabaaa6b14"
 }
 
+variable "vis_enabled" {
+  type = bool
+  default = true
+}
+
 variable "vis_bucket" {
   type = string
 }

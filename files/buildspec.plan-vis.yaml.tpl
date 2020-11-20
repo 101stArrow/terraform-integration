@@ -17,6 +17,12 @@ phases:
       - terraform init >/dev/null
       - terraform plan -out tfplan
       - terraform plan -destroy -out tfplan.destroy >/dev/null
+      - terraform show -json tfplan > plan.json
+      - terraform show -json tfplan.destroy > plan.destroy.json
+      - terraform-visual --plan plan.json
+      - aws s3 mv --recursive terraform-visual-report/ s3://${bucket}/new/ >/dev/null
+      - terraform-visual --plan plan.destroy.json
+      - aws s3 mv --recursive terraform-visual-report/ s3://${bucket}/existing/ >/dev/null
 artifacts:
   files:
     - '**/*'
